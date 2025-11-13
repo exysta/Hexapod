@@ -1,0 +1,3 @@
+../Drivers/PCA9685/driver_pca9685_basic.c:50:9:pca9685_basic_init	23
+../Drivers/PCA9685/driver_pca9685_basic.c:295:9:pca9685_basic_deinit	3
+../Drivers/PCA9685/driver_pca9685_basic.c:330:9:pca9685_basic_write	3

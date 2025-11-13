@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/CMakeFiles/bootloader
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/CMakeFiles/bootloader.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/CMakeFiles/bootloader-complete.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
