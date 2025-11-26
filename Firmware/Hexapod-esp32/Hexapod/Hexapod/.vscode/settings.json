@@ -16,7 +16,7 @@
     "--compile-commands-dir=${workspaceFolder}\\build"
   ],
   "idf.flashType": "UART",
-  "idf.portWin": "COM5",
+  "idf.portWin": "COM6",
   "files.associations": {
     "inttypes.h": "c",
     "i2c.h": "c",
@@ -33,6 +33,11 @@
     "span": "cpp",
     "text_encoding": "cpp",
     "regex": "cpp",
-    "mutex": "cpp"
+    "mutex": "cpp",
+    "cmath": "cpp",
+    "nvs_flash.h": "c",
+    "connect_wifi.h": "c",
+    "esp_err.h": "c",
+    "web-server.h": "c"
   }
 }

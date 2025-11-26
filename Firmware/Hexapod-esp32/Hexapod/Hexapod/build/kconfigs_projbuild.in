@@ -3,3 +3,4 @@ source "C:/Users/exysta/esp/v5.5.1/esp-idf/components/esp_app_format/Kconfig.pro
 source "C:/Users/exysta/esp/v5.5.1/esp-idf/components/esp_rom/Kconfig.projbuild"
 source "C:/Users/exysta/esp/v5.5.1/esp-idf/components/esptool_py/Kconfig.projbuild"
 source "C:/Users/exysta/esp/v5.5.1/esp-idf/components/partition_table/Kconfig.projbuild"
+source "D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/main/Kconfig.projbuild"
