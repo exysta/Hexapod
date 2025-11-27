@@ -22,7 +22,7 @@
 led_strip_handle_t strip;
 led_strip_config_t strip_config = {
     .max_leds = 1,
-    .strip_gpio_num = 47, // your data pin
+    .strip_gpio_num = 48, // your data pin
     .led_model = LED_MODEL_WS2812
 };
 // Create RMT configuration

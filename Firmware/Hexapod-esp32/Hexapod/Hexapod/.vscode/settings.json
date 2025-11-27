@@ -38,6 +38,7 @@
     "nvs_flash.h": "c",
     "connect_wifi.h": "c",
     "esp_err.h": "c",
-    "web-server.h": "c"
+    "web-server.h": "c",
+    "stdlib.h": "c"
   }
 }

@@ -20,8 +20,59 @@
 #include "pca9685.h"
 #include "web-server.h"
 
+#include "led_strip.h" // to remove later
+static const char *TAG = "MAIN";
 
-static const char *TAG = "PCA9685_MAIN";
+
+// to remove
+// List of most common GPIOs used for WS2812 on ESP32-S3 boards
+// 48: Standard DevKitC-1
+// 38: DevKitC-1 v1.1 / S3-BOX
+// 47: Some clones
+// 21: S3-Zero / S3-Mini
+// 39-42, 45-46: Other common variations
+int plausible_gpios[] = {48, 38, 47, 21, 39, 40, 41, 42, 45, 46, 1, 2, 10, 15};
+
+void test_pin(int gpio_num)
+{
+    led_strip_handle_t led_strip = NULL;
+
+    // 1. Configure the LED strip for the current GPIO
+    led_strip_config_t strip_config = {
+        .strip_gpio_num = gpio_num,
+        .max_leds = 1, 
+    };
+
+    led_strip_rmt_config_t rmt_config = {
+        .resolution_hz = 10 * 1000 * 1000, // 10MHz
+        .flags.with_dma = false,
+    };
+
+    // 2. Init the driver
+    esp_err_t err = led_strip_new_rmt_device(&strip_config, &rmt_config, &led_strip);
+    
+    if (err == ESP_OK) {
+        ESP_LOGW(TAG, ">>> Testing GPIO %d <<<", gpio_num);
+        
+        // 3. Set Color to RED (Green=0, Red=100, Blue=0)
+        led_strip_set_pixel(led_strip, 0, 0, 100, 0);
+        led_strip_refresh(led_strip);
+
+        // 4. Wait so you can see it
+        vTaskDelay(500 / portTICK_PERIOD_MS);
+
+        // 5. Turn off
+        led_strip_clear(led_strip);
+        
+        // 6. IMPORTANT: Delete the driver to free up the RMT channel for the next pin
+        led_strip_del(led_strip);
+    } else {
+        ESP_LOGE(TAG, "Could not init GPIO %d (might be input-only or busy)", gpio_num);
+    }
+}
+
+// to remove
+
 
 
 void task_PCA9685(void *ignore)
@@ -127,6 +178,24 @@ void task_web_server(void* ignore)
 
 void app_main()
 {
+    // ESP_LOGI(TAG, "Starting Pin Hunter...");
+    // ESP_LOGI(TAG, "Watch the LED. When it lights up, check the log!");
+
+    // while (1) {
+    //     // Loop through our list of candidates
+    //     int num_candidates = sizeof(plausible_gpios) / sizeof(plausible_gpios[0]);
+        
+    //     for (int i = 0; i < num_candidates; i++) {
+    //         // test_pin(plausible_gpios[i]);
+    //         test_pin(48);
+
+    //         // Small delay between pins
+    //         vTaskDelay(100 / portTICK_PERIOD_MS);
+    //     }
+
+    //     ESP_LOGI(TAG, "Restarting loop...");
+    //     vTaskDelay(1000 / portTICK_PERIOD_MS);
+    // }
     web_server_setup();
 
     // xTaskCreate(task_PCA9685, "task_PCA9685", 4096, NULL, 10, NULL);

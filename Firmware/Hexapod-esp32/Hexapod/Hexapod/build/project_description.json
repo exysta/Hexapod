@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "Hexapod",
-    "project_version":    "fdb2bf2-dirty",
+    "project_version":    "cb9dd7c-dirty",
     "project_path":       "D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod",
     "idf_path":           "C:/Users/exysta/esp/v5.5.1/esp-idf",
     "build_dir":          "D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build",
