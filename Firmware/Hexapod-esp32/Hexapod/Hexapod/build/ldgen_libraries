@@ -118,9 +118,11 @@ D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/co
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/http_parser/libhttp_parser.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/esp_http_server/libesp_http_server.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/spiffs/libspiffs.a
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/libespressif__led_strip.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/libweb-server.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/connect_wifi/libconnect_wifi.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/spiffs/libspiffs.a
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/libespressif__led_strip.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/main/libmain.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/pca9685/libpca9685.a
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/libweb-server.a

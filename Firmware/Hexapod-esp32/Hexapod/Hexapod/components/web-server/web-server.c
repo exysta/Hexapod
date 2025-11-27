@@ -17,8 +17,21 @@
 
 #include "connect_wifi.h"
 #include "web-server.h"
+#include "led_strip.h"
 
-#define LED_PIN 2
+led_strip_handle_t strip;
+led_strip_config_t strip_config = {
+    .max_leds = 1,
+    .strip_gpio_num = 47, // your data pin
+    .led_model = LED_MODEL_WS2812
+};
+// Create RMT configuration
+led_strip_rmt_config_t rmt_config = {
+    .clk_src = RMT_CLK_SRC_DEFAULT,   // Use default clock
+    .resolution_hz = 10000000,        // 10 MHz RMT resolution (typical)
+    .mem_block_symbols = 64,          // default memory block size
+    .flags.with_dma = 1                // DMA optional, 0 = don't use
+};
 
 static const char *TAG = "WebSocketServer";
 static httpd_handle_t server = NULL;
@@ -116,7 +129,16 @@ static esp_err_t ws_handler(httpd_req_t *req)
 
         if (strcmp((char *)ws_pkt.payload, "toggle") == 0) {
             led_state = !led_state;
-            gpio_set_level(LED_PIN, led_state);
+            ESP_LOGI(TAG, "ESP32 LED toggle!");
+
+            if(led_state == 0){
+            led_strip_set_pixel(strip, 0, 0, 0, 0);
+            led_strip_refresh(strip);
+            }
+            else{
+            led_strip_set_pixel(strip, 0, 255, 0, 0);
+            led_strip_refresh(strip);
+            }
 
             char send_buf[8];
             snprintf(send_buf, sizeof(send_buf), "%d", led_state);
@@ -153,7 +175,8 @@ static httpd_handle_t setup_websocket_server(void)
         .uri = "/ws",
         .method = HTTP_GET,
         .handler = ws_handler,
-        .user_ctx = NULL
+        .user_ctx = NULL,
+        .is_websocket = true
     };
 
     if (httpd_start(&server, &config) == ESP_OK) {
@@ -185,9 +208,11 @@ void web_server_setup(void)
     }
 
     // Initialize LED
-    gpio_reset_pin(LED_PIN);
-    gpio_set_direction(LED_PIN, GPIO_MODE_OUTPUT);
-    gpio_set_level(LED_PIN, led_state);
+    ret = led_strip_new_rmt_device(&strip_config, &rmt_config, &strip);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "LED strip initialization failed");
+        return;
+    }
 
     // Serve webpage + WebSocket
     if (init_web_page_buffer() != ESP_OK) {

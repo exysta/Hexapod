@@ -605,6 +605,13 @@ D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/sp
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/spiffs/CMakeFiles/install.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/spiffs/CMakeFiles/install/local.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/spiffs/CMakeFiles/install/strip.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/__idf_espressif__led_strip.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/edit_cache.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/rebuild_cache.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/list_install_components.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/install.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/install/local.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/install/strip.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/CMakeFiles/__idf_web-server.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/CMakeFiles/edit_cache.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/CMakeFiles/rebuild_cache.dir
