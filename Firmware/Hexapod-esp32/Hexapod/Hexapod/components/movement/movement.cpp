@@ -3,6 +3,7 @@
 #include "config.h"
 
 #include <cstdlib>
+static const char *TAG = "movement";
 
 namespace hexapod {
 
@@ -44,7 +45,7 @@ namespace hexapod {
     void Movement::setMode(MovementMode newMode) {
 
         if (!kTable[newMode].entries) {
-            LOG_INFO("Error: null movement of mode(%d)!", newMode);
+            ESP_LOGI(TAG, "Error: null movement of mode(%d)!", newMode);
             return;
         }
 

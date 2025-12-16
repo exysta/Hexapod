@@ -1,38 +1,25 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <title>Robot Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fafafa;
+    }
     .title {
       text-align: center;
-      position: relative;
+      padding: 10px;
+      color: #333;
     }
-    .lang-switch {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #1E90FF;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 15px;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 4px #999;
-      transition: all 0.3s;
-    }
-    .lang-switch:hover {
-      background-color: #0b7dda;
-    }
-    .lang-switch:active {
-      box-shadow: 0 2px #666;
-      transform: translateY(-48%);
-    }
+    /* Button Base Style */
     .button { 
       display: inline-block;
-      width: 130px; /* 所有按钮的统一宽度 */
-      height: 50px; /* 所有按钮的统一高度 */
-      line-height: 50px; /* 使文本垂直居中 */
+      width: 130px; 
+      height: 50px; 
+      line-height: 50px; 
       font-size: 20px;
       cursor: pointer;
       text-align: center;
@@ -42,84 +29,86 @@
       background-color: #1E90FF;
       border: none;
       border-radius: 10px;
-      box-shadow: 0 9px #999;
+      box-shadow: 0 5px #999;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
     .button:hover {background-color: #0b7dda}
     .button:active {
       background-color: #0b7dda;
-      box-shadow: 0 5px #666;
+      box-shadow: 0 2px #666;
       transform: translateY(4px);
     }
 
-    /* 移动按钮的颜色设置 */
+    /* Move Buttons (Pink) */
     .button-move {
-      background-color: #FF1493; /* 洋红色 */
+      background-color: #FF1493; 
     }
     .button-move:hover {background-color: #FF69B4}
     .button-move:active {
       background-color: #FF69B4;
-      box-shadow: 0 5px #666;
+      box-shadow: 0 2px #666;
       transform: translateY(4px);
     }
 
-    /* 姿态按钮的颜色设置 */
+    /* Posture Buttons (Orange) */
     .button-posture {
-      background-color: #FFA500; /* 科技氛围的橙色 */
+      background-color: #FFA500; 
     }
     .button-posture:hover {background-color: #FFB347}
     .button-posture:active {
       background-color: #FFB347;
-      box-shadow: 0 5px #666;
+      box-shadow: 0 2px #666;
       transform: translateY(4px);
     }
 
-    /* 待机模式的颜色设置 */
+    /* Standby Button (Grey) */
     .button-standby {
-      background-color: #3A3A3A; /* 大疆无人机灰 */
+      background-color: #3A3A3A; 
     }
     .button-standby:hover {background-color: #4A4A4A}
     .button-standby:active {
       background-color: #4A4A4A;
-      box-shadow: 0 5px #666;
+      box-shadow: 0 2px #666;
       transform: translateY(4px);
     }
 
     .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 15px;
       justify-items: center;
       align-items: center;
-      margin-top: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 10px;
     }
     .grid-item-1 { grid-column: span 1; }
     .grid-item-2 { grid-column: span 2; }
     .grid-item-3 { grid-column: span 3; }
     .empty { visibility: hidden; }
-    .empty-row { grid-column: span 3; height: 20px; }
+    .empty-row { grid-column: span 3; height: 10px; }
 
-    /* 速度控制区域样式 */
+    /* Speed Control Area */
     .speed-control {
       max-width: 500px;
       margin: 10px auto;
-      padding: 10px;
-      background-color: #f5f5f5;
+      padding: 15px;
+      background-color: #fff;
       border-radius: 15px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
     .speed-label {
       font-size: 18px;
       font-weight: bold;
       color: #333;
       margin-bottom: 10px;
-      text-align: center;
     }
-    /* 速度档位按钮样式 */
     .speed-levels {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin: 15px 0;
       flex-wrap: wrap;
     }
     .speed-btn {
@@ -149,7 +138,7 @@
       background-color: #0b7dda;
     }
 
-    /* 页脚署名样式 */
+    /* Footer */
     .footer {
       margin-top: 40px;
       padding: 20px;
@@ -159,93 +148,75 @@
       border-radius: 10px 10px 0 0;
       box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     }
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
     .footer-title {
       font-size: 16px;
       font-weight: bold;
-      margin-bottom: 10px;
     }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: nowrap;
-      margin-top: 12px;
+    
+    /* Calibration Button Style */
+    .cal-btn-wrapper {
+      text-align: center; 
+      padding: 10px;
     }
-    .footer-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      padding: 8px 15px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      transition: all 0.3s;
-    }
-    .footer-link:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .footer-icon {
-      width: 20px;
-      height: 20px;
+    .cal-btn {
+      width: 200px; 
+      height: 40px; 
+      font-size: 16px; 
+      cursor: pointer;
+      background-color: #ddd;
+      border: 1px solid #aaa;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <h1 class="title">
-    <span id="pageTitle">机器人控制</span>
-    <button class="lang-switch" onclick="toggleLanguage()">English</button>
-  </h1>
 
-  <center><span align="center" style="text-align: center; display: inline-block;padding: 5px; font-size: 120%;font-weight: bold;"><a style="width:200px; height:50px;" href="/calibration">
-    <button id="CALIBRATEPAGE" type="button" onclick="buttonclick(this);" style="width:200px; height: 30px; Text-align: center;">Calibration: Start | Save</button></a></span></center><br>
+  <h1 class="title">Robot Control</h1>
 
-  <!-- 速度控制区域 -->
+  <div class="cal-btn-wrapper">
+    <a href="/calibration">
+      <button class="cal-btn" type="button">Calibration: Start | Save</button>
+    </a>
+  </div>
+
+  <!-- Speed Control -->
   <div class="speed-control">
-    <div class="speed-label">运动速度控制</div>
+    <div class="speed-label">Movement Speed Control</div>
     <div class="speed-levels">
-      <button class="speed-btn" data-speed="0.25" data-zh="极慢" data-en="Slowest">极慢</button>
-      <button class="speed-btn" data-speed="0.33" data-zh="慢速" data-en="Slow">慢速</button>
-      <button class="speed-btn active" data-speed="0.5" data-zh="中速" data-en="Medium">中速</button>
-      <button class="speed-btn" data-speed="1.0" data-zh="快速" data-en="Fastest">快速</button>
+      <button class="speed-btn" data-speed="0.25">Slowest</button>
+      <button class="speed-btn" data-speed="0.33">Slow</button>
+      <button class="speed-btn active" data-speed="0.5">Medium</button>
+      <button class="speed-btn" data-speed="1.0">Fastest</button>
     </div>
   </div>
   
+  <!-- Control Grid -->
   <div class="grid-container">
-    <button class="button button-posture grid-item-1" onclick="sendCommand(9)" data-zh="旋转X" data-en="RotateX">旋转X</button>
-    <button class="button button-posture grid-item-1" onclick="sendCommand(10)" data-zh="旋转Y" data-en="RotateY">旋转Y</button>
-    <button class="button button-posture grid-item-1" onclick="sendCommand(11)" data-zh="旋转Z" data-en="RotateZ">旋转Z</button>
-    <button class="button button-posture grid-item-3" onclick="sendCommand(12)" data-zh="扭腰" data-en="Twist">扭腰</button>
+    <button class="button button-posture grid-item-1" onclick="sendCommand(9)">RotateX</button>
+    <button class="button button-posture grid-item-1" onclick="sendCommand(10)">RotateY</button>
+    <button class="button button-posture grid-item-1" onclick="sendCommand(11)">RotateZ</button>
+    
+    <button class="button button-posture grid-item-3" onclick="sendCommand(12)">Twist</button>
     
     <div class="empty-row"></div>
     
-    <button class="button grid-item-1" onclick="sendCommand(4)" data-zh="左转" data-en="TurnLeft">左转</button>
+    <button class="button grid-item-1" onclick="sendCommand(4)">TurnLeft</button>
     <div class="empty grid-item-1"></div>
-    <button class="button grid-item-1" onclick="sendCommand(5)" data-zh="右转" data-en="TurnRight">右转</button>
+    <button class="button grid-item-1" onclick="sendCommand(5)">TurnRight</button>
     
-    <button class="button grid-item-1" onclick="sendCommand(2)" data-zh="快跑" data-en="Run">快跑</button>
-    <button class="button button-move grid-item-1" onclick="sendCommand(1)" data-zh="前进" data-en="Forward">前进</button>
-    <button class="button grid-item-1" onclick="sendCommand(8)" data-zh="爬行" data-en="Climb">爬行</button>
+    <button class="button grid-item-1" onclick="sendCommand(2)">Run</button>
+    <button class="button button-move grid-item-1" onclick="sendCommand(1)">Forward</button>
+    <button class="button grid-item-1" onclick="sendCommand(8)">Climb</button>
     
-    <button class="button button-move grid-item-1" onclick="sendCommand(6)" data-zh="左移" data-en="ShiftLeft">左移</button>
-    <button class="button button-standby grid-item-1" onclick="sendCommand(0)" data-zh="待机" data-en="Standby">待机</button>
-    <button class="button button-move grid-item-1" onclick="sendCommand(7)" data-zh="右移" data-en="ShiftRight">右移</button>
-    <button class="button button-move grid-item-3" onclick="sendCommand(3)" data-zh="后退" data-en="Backward">后退</button>
+    <button class="button button-move grid-item-1" onclick="sendCommand(6)">ShiftLeft</button>
+    <button class="button button-standby grid-item-1" onclick="sendCommand(0)">Standby</button>
+    <button class="button button-move grid-item-1" onclick="sendCommand(7)">ShiftRight</button>
+    
+    <button class="button button-move grid-item-3" onclick="sendCommand(3)">Backward</button>
   </div>
 
-  <!-- 页脚署名 -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-title" id="footerTitle"> NodeHexa </div>
-      </div>
-    </div>
+    <div class="footer-title">Open Source - NodeHexa Hexapod Robot</div>
   </footer>
   
   <script>
@@ -262,8 +233,15 @@
         setTimeout(initRobotInputWebSocket, 2000);
       };
       websocketCarInput.onmessage = function(event) {
-        let data = JSON.parse(event.data).raw;
-        console.log('Battery monitor: ${data}%');
+        // Handle incoming data if needed (e.g., battery)
+        try {
+            let data = JSON.parse(event.data);
+            if(data.raw) {
+                console.log('Battery monitor: ' + data.raw + '%');
+            }
+        } catch(e) {
+            console.log("Received non-JSON message");
+        }
       };
     }
 
@@ -290,71 +268,25 @@
     function initSpeedControl() {
       const speedButtons = document.querySelectorAll('.speed-btn');
       
-      let currentSpeed = 0.5; // 默认中速
-      
-      // 档位按钮点击事件
+      // Speed button click event
       speedButtons.forEach(button => {
         button.addEventListener('click', function() {
-          // 移除所有按钮的active状态
+          // Remove active class from all
           speedButtons.forEach(btn => btn.classList.remove('active'));
-          // 添加当前按钮的active状态
+          // Add active class to clicked
           this.classList.add('active');
           
-          // 更新当前速度值
-          currentSpeed = parseFloat(this.dataset.speed);
-          
-          // 发送速度命令
+          let currentSpeed = parseFloat(this.dataset.speed);
           sendSpeed(currentSpeed);
           
-          console.log('速度已切换到: ' + this.textContent + ' (值: ' + currentSpeed + ')');
+          console.log('Speed switched to: ' + this.textContent + ' (Value: ' + currentSpeed + ')');
         });
       });
-    }
-
-    // 语言切换功能
-    let currentLang = 'en'; // 默认中文
-
-    const langTexts = {
-      pageTitle: { zh: '机器人控制', en: 'Robot Control' },
-      langButton: { zh: 'English', en: '中文' },
-      speedLabel: { zh: '运动速度控制', en: 'Movement Speed Control' },
-      footerTitle: { zh: '开源项目 · NodeHexa 六足机器人', en: 'Open Source · NodeHexa Hexapod Robot' },
-    };
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'zh' ? 'en' : 'zh';
-      
-      // 更新页面标题
-      document.getElementById('pageTitle').textContent = langTexts.pageTitle[currentLang];
-      
-      // 更新语言切换按钮文本
-      document.querySelector('.lang-switch').textContent = langTexts.langButton[currentLang];
-      
-      // 更新速度控制区域文本
-      document.querySelector('.speed-label').textContent = langTexts.speedLabel[currentLang];
-      
-      // 更新速度档位按钮文本
-      const speedButtons = document.querySelectorAll('.speed-btn[data-zh][data-en]');
-      speedButtons.forEach(button => {
-        button.textContent = button.getAttribute('data-' + currentLang);
-      });
-      
-      // 更新所有按钮文本
-      const buttons = document.querySelectorAll('.button[data-zh][data-en]');
-      buttons.forEach(button => {
-        button.textContent = button.getAttribute('data-' + currentLang);
-      });
-      
-      // 更新页脚文本
-      document.getElementById('footerTitle').textContent = langTexts.footerTitle[currentLang];
-      
-      console.log('Language switched to: ' + (currentLang === 'zh' ? '中文' : 'English'));
     }
 
     window.onload = function() {
       initRobotInputWebSocket();
       initSpeedControl();
-      // 默认显示中文，无需调用toggleLanguage
     };
   </script>
 </body>

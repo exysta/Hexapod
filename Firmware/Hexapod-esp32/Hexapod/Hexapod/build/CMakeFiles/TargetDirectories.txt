@@ -612,6 +612,13 @@ D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/es
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/install.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/install/local.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/espressif__led_strip/CMakeFiles/install/strip.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/json/CMakeFiles/__idf_json.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/json/CMakeFiles/edit_cache.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/json/CMakeFiles/rebuild_cache.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/json/CMakeFiles/list_install_components.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/json/CMakeFiles/install.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/json/CMakeFiles/install/local.dir
+D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/json/CMakeFiles/install/strip.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/CMakeFiles/__idf_web-server.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/CMakeFiles/edit_cache.dir
 D:/Work/Projects/Hexapod/Firmware/Hexapod-esp32/Hexapod/Hexapod/build/esp-idf/web-server/CMakeFiles/rebuild_cache.dir
